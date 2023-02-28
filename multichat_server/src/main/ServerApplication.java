@@ -3,6 +3,7 @@ package main;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Optional;
 
 import javax.swing.JFrame;
 
@@ -14,7 +15,6 @@ public class ServerApplication {
 		serverFrame.setSize(300, 300);
 		serverFrame.setVisible(true);
 		
-		
 		try {
 			ServerSocket serverSocket = new ServerSocket(9090);
 			
@@ -22,7 +22,6 @@ public class ServerApplication {
 				Socket socket = serverSocket.accept(); //client접속 기다림
 				ConnectedSocket connectedSocket = new ConnectedSocket(socket); //생성된 스레드를 시작해주기위함
 				connectedSocket.start(); //생성된 스레드를 시작해주기위함(run 메소드 시작)										
-				
 			}
 			
 		} catch (IOException e) {
